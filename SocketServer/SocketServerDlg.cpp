@@ -162,8 +162,6 @@ HCURSOR CSocketServerDlg::OnQueryDragIcon()
 void CSocketServerDlg::OnBnClickedBtnListen()
 {
 	// TODO: 在此添加控件通知处理程序代码
-
-
 	if (m_srvrSocket.m_hSocket == INVALID_SOCKET)
 	{
 		BOOL bFlag = m_srvrSocket.Create(UserPort, SOCK_STREAM, FD_ACCEPT);
@@ -188,5 +186,4 @@ void CSocketServerDlg::OnBnClickedBtnListen()
 			return;
 		}
 	}
-
 }
