@@ -8,7 +8,8 @@ class CMyServerSocket :
 {
 
 public:
-    CNewSocket* m_pSocket;
+    //CNewSocket* m_pSocket;
+    CPtrList m_pSocketList;
 
 public:
     virtual void OnAccept(int nErrorCode);

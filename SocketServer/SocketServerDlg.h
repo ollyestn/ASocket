@@ -39,4 +39,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	int UserPort;
+	afx_msg void OnBnClickedBtnClose();
 };

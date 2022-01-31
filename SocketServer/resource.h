@@ -10,7 +10,6 @@
 #define IDR_MAINFRAME                   128
 #define IDC_BTN_LISTEN                  1000
 #define IDC_BTN_CLOSE                   1001
-#define IDC_EDIT1                       1002
 #define IDC_EDIT_PORT                   1002
 
 // Next default values for new objects

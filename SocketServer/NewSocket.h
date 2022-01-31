@@ -10,5 +10,6 @@ public:
 public:
     virtual void OnReceive(int nErrorCOde);
     virtual void OnSend(int nErrorCOde);
+    virtual void OnClose(int nErrorCode);
 };
 

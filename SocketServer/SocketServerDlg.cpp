@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CSocketServerDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_LISTEN, &CSocketServerDlg::OnBnClickedBtnListen)
+	ON_BN_CLICKED(IDC_BTN_CLOSE, &CSocketServerDlg::OnBnClickedBtnClose)
 END_MESSAGE_MAP()
 
 
@@ -175,7 +176,7 @@ void CSocketServerDlg::OnBnClickedBtnListen()
 	}
 
 	//"侦听"成功,等待连接请求
-	if (!m_srvrSocket.Listen(1))
+	if (!m_srvrSocket.Listen(5))
 	{
 		int nErrorCode = m_srvrSocket.GetLastError();
 		if (nErrorCode != WSAEWOULDBLOCK)
@@ -186,4 +187,11 @@ void CSocketServerDlg::OnBnClickedBtnListen()
 			return;
 		}
 	}
+}
+
+
+void CSocketServerDlg::OnBnClickedBtnClose()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	m_srvrSocket.Close();
 }

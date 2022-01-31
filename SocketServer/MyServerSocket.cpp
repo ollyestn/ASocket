@@ -10,7 +10,7 @@ void CMyServerSocket::OnAccept(int nErrorCode)
     if (Accept(*pSocket))
     {
         pSocket->AsyncSelect(FD_READ);
-        m_pSocket = pSocket;
+        m_pSocketList.AddTail(pSocket);
     }
     else
         delete pSocket;

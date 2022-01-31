@@ -168,13 +168,13 @@ void CSocketClientDlg::OnBnClickedButConnect()
 	m_clientSocket.ShutDown(2);
 	m_clientSocket.m_hSocket = INVALID_SOCKET;
 	m_clientSocket.m_bConnected = FALSE;
+
 	CAddrDlg m_Dlg;
 	//默认端口1088
 	m_Dlg.m_Port = 1088;
 	if (m_Dlg.DoModal() == IDOK && !m_Dlg.m_Addr.IsEmpty())
 	{
-		
-			memcpy(m_szServerAdr, m_Dlg.m_Addr, sizeof(m_szServerAdr));
+		memcpy(m_szServerAdr, m_Dlg.m_Addr, sizeof(m_szServerAdr));
 		m_szPort = m_Dlg.m_Port;
 		//建立计时器，每1秒尝试连接一次，直到连上或TryCount>10
 		SetTimer(1, 1000, NULL);
@@ -211,8 +211,9 @@ void CSocketClientDlg::OnTimer(UINT_PTR nIDEvent)
 		}
 	}
 
-	m_clientSocket.Connect(m_szServerAdr, m_szPort);
-
+	if (m_clientSocket.Connect(m_szServerAdr, m_szPort))
+		AfxMessageBox("连接成功！");
+	
 	TryCount++;
 	if (TryCount >= 10 || m_clientSocket.m_bConnected)
 	{
